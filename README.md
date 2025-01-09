@@ -1,8 +1,10 @@
 # Painting or Sculpture Classification with Convolutional Neural Networks
 
+# Painting or Sculpture Classification with Convolutional Neural Networks
+
 This project is a binary image classifier built with PyTorch, designed to distinguish between two types of art: **sculptures** and **paintings**. The model uses a Convolutional Neural Network architecture to classify images and is trained on a dataset of artwork images. <br>
 
-Highest Achieved Accuracy: 89 % <br>
+Highest Achieved Accuracy: 93 % <br>
 
 ## Table of Contents
 - [Project Overview](#project-overview)  
@@ -24,7 +26,10 @@ The ArtNeuralNetwork project is a deep learning-based system designed to classif
 3. **test.py** - Evaluates the trained model's performance on a separate testing dataset.
 
 ## Dataset
-The dataset comprises images of sculptures and paintings organized into training and testing sets. The images are stored in respective directories to aid in supervised learning.
+The dataset comprises images of sculptures and paintings organized into training and testing sets. The images are stored in respective directories to aid in supervised learning. Recent updates include:
+- Cleaning the dataset to remove invalid files.
+- Balancing the test set to ensure equal representation of sculptures and paintings.
+- Implementing a dynamic 80/20 split for training and testing data, which creates new directories (`train/` and `test/`) to store the split data.
 
 ## Model Architecture
 The network consists of two convolutional layers, each followed by max pooling and ReLU activation. A fully connected layer is used to classify images as either sculptures or paintings, with a sigmoid activation function to produce output probabilities.
@@ -47,10 +52,11 @@ pip install torch numpy pillow
 
 ## Training the Model
 1. Place your training images in the appropriate `datasets/train/` subdirectories (`sculpture` and `painting`).
-2. Run `train.py` to train the model:
+2. Run `train.py` to dynamically split the dataset and train the model:
    ```sh
    python train.py
    ```
+   - This step creates new directories (`datasets/train/` and `datasets/test/`) based on an 80/20 split.
 
 ## Testing the Model
 1. Place your test images in the `datasets/test/` subdirectories.
@@ -58,10 +64,14 @@ pip install torch numpy pillow
    ```sh
    python test.py
    ```
+   - The script balances the test set during evaluation to ensure equal representation of sculptures and paintings.
 
 ## Results
-- **Highest Achieved Accuracy**: 89%
-- The model's performance is evaluated on a separate test dataset, and both overall accuracy and class-wise accuracy metrics are calculated.
+- **Highest Achieved Accuracy**: 93%
+- The model was evaluated on a cleaned and balanced test dataset.
+- Class-wise accuracy:
+  - Sculptures: Correctly classified 271
+  - Paintings: Correctly classified 232
 
 ## File Structure
 - **datasets/train/**: Contains training images organized in subdirectories `sculpture` and `painting`.
@@ -89,4 +99,5 @@ datasets/
       image2.jpg
       ...
 ```
+
 
