@@ -1,9 +1,5 @@
 # Painting or Sculpture Classification with Convolutional Neural Networks
 
-# Painting or Sculpture Classification with Convolutional Neural Networks
-
-This project is a binary image classifier built with PyTorch, designed to distinguish between two types of art: **sculptures** and **paintings**. The model uses a Convolutional Neural Network architecture to classify images and is trained on a dataset of artwork images. <br>
-
 Highest Achieved Accuracy: 93 % <br>
 
 ## Table of Contents
@@ -30,6 +26,8 @@ The dataset comprises images of sculptures and paintings organized into training
 - Cleaning the dataset to remove invalid files.
 - Balancing the test set to ensure equal representation of sculptures and paintings.
 - Implementing a dynamic 80/20 split for training and testing data, which creates new directories (`train/` and `test/`) to store the split data.
+
+**Dataset Source**: [Art Images - Drawings, Paintings, Sculptures, Engravings (Kaggle)](https://www.kaggle.com/datasets/thedownhill/art-images-drawings-painting-sculpture-engraving)
 
 ## Model Architecture
 The network consists of two convolutional layers, each followed by max pooling and ReLU activation. A fully connected layer is used to classify images as either sculptures or paintings, with a sigmoid activation function to produce output probabilities.
